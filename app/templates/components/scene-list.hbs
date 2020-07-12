@@ -1,5 +1,5 @@
 {{#if (not hideSearch)}}
-<p><b>Select Scenes:</b> 
+<p><b>Filter Scenes:</b> 
 
 <PowerSelect @selected={{filter}} @options={{sceneFilters}} @onchange={{action "filterChanged"}} as |name|>
   {{name}}
@@ -10,7 +10,7 @@
 </p>
 {{/if}}
 
-<table class="table table-striped">
+<table class="table table-striped posted-scene-list">
 
 
 <thead>
@@ -29,16 +29,16 @@
         
         <SceneTypeTag @scene={{scene}} />
        
-        <p><AnsiFormat @text={{scene.summary}} />
+        <p>  <AnsiFormat @text={{scene.summary}} />
           {{#if scene.content_warning}}
           <ContentWarningTag @warning={{scene.content_warning}} @position="top-right" />
           {{/if}}
         </p>
         </td>
         <td>
-            {{#each scene.participants as |participant|}}
-            <a href="/char/{{participant.name}}">{{participant.name}}</a>
-            {{/each}}
+            {{#each scene.participants as |participant p| ~}}
+	    {{#if p}}, {{/if}}<a href="/char/{{participant.name}}">{{participant.name}}</a>
+            {{~/each}}
         </td>
     </tr>
 {{/each}}
