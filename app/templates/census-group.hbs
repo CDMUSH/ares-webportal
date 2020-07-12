@@ -16,9 +16,9 @@
     <td>{{group.name}}</td>
     <td>{{group.count}}</td>
     <td>
-        {{#each group.chars as |char|}}
-        {{char.name}}
-        {{/each}}
+        {{#each group.chars as |char c| ~}}
+        {{#if c}}, {{/if}}{{char.name}}
+        {{~/each}}
     </td>
 </tr>
 {{/each}}

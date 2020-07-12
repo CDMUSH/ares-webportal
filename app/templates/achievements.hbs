@@ -6,12 +6,12 @@
   <tr>
     <td><i class="fa {{achievement.type_icon}} fa-2x" aria-hidden="true"></i></td>
     <td>{{achievement.message}}</td>
-    <td>{{#each achievement.chars as |char|}}
-      {{char.name}}
-        {{#if char.count}} 
+    <td>{{#each achievement.chars as |char c| ~}}
+      {{#if c}}, {{/if}}{{char.name}}
+        {{~#if char.count}} 
         ({{char.count}})
-        {{/if}}
-       {{/each}}
+        {{~/if~}}
+       {{~/each}}
     </td>
   </tr>
   {{/each}}
