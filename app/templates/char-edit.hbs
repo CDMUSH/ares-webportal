@@ -8,6 +8,10 @@
         <li><a data-toggle="tab" href="#descs">Descriptions</a></li>
         {{#if model.char.is_profile_manager}}
         <li><a data-toggle="tab" href="#bg">Background</a></li>
+	<li><a data-toggle="tab" href="#powers">Powers</a></li> 
+	<li><a data-toggle="tab" href="#skills">Skills</a></li> 
+	<li><a data-toggle="tab" href="#resources">Resources</a></li> 
+	<li><a data-toggle="tab" href="#drawbacks">Drawbacks</a></li> 
         {{/if}}
         <li><a data-toggle="tab" href="#files">Files</a></li>
         <CharEditCustomTabs @char={{model}} />
@@ -25,6 +29,18 @@
       {{#if model.char.is_profile_manager}}
       <div id="bg" class="tab-pane fade in">
           <MarkdownEditor @text={{model.char.background}} />
+      </div>
+      <div id="powers" class="tab-pane fade">
+          <MarkdownEditor @text={{model.char.custom.powers}} />
+      </div>
+      <div id="skills" class="tab-pane fade">
+          <MarkdownEditor @text={{model.char.custom.skills}} />
+      </div>
+      <div id="resources" class="tab-pane fade">
+          <MarkdownEditor @text={{model.char.custom.resources}} />
+      </div>
+      <div id="drawbacks" class="tab-pane fade">
+          <MarkdownEditor @text={{model.char.custom.drawbacks}} />
       </div>
       {{/if}}
       <div id="hooks" class="tab-pane fade in">
