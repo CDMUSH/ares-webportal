@@ -14,9 +14,9 @@
     {{#if role.chars}}
     <td>
       
-      {{#each role.chars as |char|}}
-      {{char}}
-      {{/each}}
+      {{#each role.chars as |char c| ~}}
+      {{#if c}}, {{/if}}{{char}}
+      {{~/each}}
     
     </td>
     {{/if}}
