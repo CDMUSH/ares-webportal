@@ -4,6 +4,26 @@
     <h3>Background</h3>
     
     <MarkdownEditor @text={{model.char.background}} />
+
+  <hr>
+    <h3>Powers</h3>
+    
+    <MarkdownEditor @text={{model.char.custom.powers}} />
+
+  <hr>
+    <h3>Skills</h3>
+
+    <MarkdownEditor @text={{model.char.custom.skills}} />
+
+  <hr>
+    <h3>Resources</h3>
+
+    <MarkdownEditor @text={{model.char.custom.resources}} />
+
+  <hr>
+    <h3>Drawbacks</h3>
+
+    <MarkdownEditor @text={{model.char.custom.drawbacks}} />
   {{/if}}
   
 
