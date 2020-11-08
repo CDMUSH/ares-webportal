@@ -2,10 +2,19 @@
 <h1>Roster</h1>
 
 <p>These characters are feature characters who were previously played on CDMUSH, and who are now currently open for application. Click on the 'Claim' button, or submit a roster/claim request on the game, in order to express your interest in one of these characters.</p><p>If a character isn't on this page, or in the active <a href="https://commondescentmush.com/chars">Character Directory</a>, they likely are open, and have simply never been created on the game before. Ask a staffer if that is the case!</p>
-    
+
+<ul class="nav nav-tabs">
 {{#each model.roster as |group|}}
 
-<h2>{{group.name}}</h2>
+      <li class={{group.active_class}}><a data-toggle="tab" href="#{{group.key}}">{{group.name}}</a></li>
+{{/each}}
+</ul>
+
+<div class="tab-content">    
+
+{{#each model.roster as |group|}}
+
+  <div id="{{group.key}}" class="tab-pane fade in {{group.active_class}}">
 
     {{#each group.chars as |char|}}
     
@@ -49,7 +58,11 @@
       </div>
     
     {{/each}}
+
+</div>
+
 {{/each}}
 
+</div>
 
 {{outlet}}
