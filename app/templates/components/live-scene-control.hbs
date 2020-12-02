@@ -113,6 +113,12 @@
             {{/if}}
     {{/each}}
 
+
+     {{#if commandResponse}}
+       <div class="scene-command">{{commandResponse}}</div>
+     {{/if}}
+     
+     
     </div>
 
     {{#if sceneAlerts}}
@@ -136,8 +142,6 @@
             <PoseOrder @poseOrder={{scene.pose_order}} @playerName={{playerName}} />
              
              <MarkdownEditor @text={{scenePose}} @rows={{6}} @class="scene-pose-box" @onEnter={{action "addPose" poseType.id}} />
-
-             
            {{/if}}
    
 
@@ -152,7 +156,7 @@
                  {{#if txtExtraInstalled}}
                    <LiveSceneTxt @scenePose={{scenePose}} @scene={{scene}} />
                  {{/if}}
-                
+                 
              <LiveSceneCustomScenepose @scenePose={{scenePose}} @scene={{scene}} />
              </div>
                 
@@ -194,7 +198,12 @@
                              
                              {{#if cookiesExtraInstalled}}
                                <LiveSceneCookies @scene={{scene}} />
-                             {{/if}}                             
+                             {{/if}}      
+                             
+                             {{#if rpgExtraInstalled}}
+                               <RpgLiveScene @scene={{scene}} />
+                             {{/if}}
+                                                    
                           
                              <LiveSceneCustomPlay @scene={{scene}} @abilities={{abilities}} />
                           
