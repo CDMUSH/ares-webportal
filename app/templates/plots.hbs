@@ -39,9 +39,9 @@
             {{/if}}
         </td>
         <td>
-          {{#each plot.storytellers as |storyteller s| ~}}
-            {{#if s}}, {{/if}}<LinkTo @route="char" @model="{{storyteller.name}}">{{storyteller.name}}</LinkTo>
-          {{~/each}}
+          {{#each plot.storytellers as |storyteller|}}
+            {{char-icon-tiny char=storyteller}}
+          {{/each}}
         </td>
         <td class="hidden-xs hidden-sm">
         {{plot.start_date}} - {{plot.end_date}}
