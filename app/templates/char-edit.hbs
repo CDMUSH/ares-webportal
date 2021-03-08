@@ -9,6 +9,7 @@
         <li><a data-toggle="tab" href="#files">Files</a></li>
         {{#if model.char.show_background_tab}}
         <li><a data-toggle="tab" href="#background">Background</a></li>
+        <li><a data-toggle="tab" href="#sheet">Sheet</a></li>
         {{/if}}
         {{#if (or model.char.show_idle_tab model.char.show_roster_tab)}}
         <li><a data-toggle="tab" href="#idle">Idle/Roster</a></li>
@@ -36,6 +37,22 @@
       <div id="background" class="tab-pane fade in">
         <MarkdownEditor @text={{model.char.background}} />
       </div>
+
+
+      <div id="sheet" class="tab-pane fade in">
+    	<h3>Powers</h3>
+ 	  <MarkdownEditor @text={{model.char.custom.powers}} />
+
+    	<h3>Skills</h3>
+	  <MarkdownEditor @text={{model.char.custom.skills}} />
+	
+	<h3>Resources</h3>
+	  <MarkdownEditor @text={{model.char.custom.resources}} />
+
+	<h3>Drawbacks</h3>
+	  <MarkdownEditor @text={{model.char.custom.drawbacks}} />
+      </div>
+
       {{/if}}
 
       {{#if (or model.char.show_idle_tab model.char.show_roster_tab)}}
