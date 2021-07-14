@@ -38,7 +38,12 @@
             
                   
            <div class="roster-char-warnings">
-               {{#if char.previously_played}}
+             
+             {{#if char.app_pending }}
+             <span class="label label-danger">App Pending</span>
+             {{/if}}
+             
+             {{#if char.previously_played}}
              <span class="label label-info">Previously Played</span>
              {{/if}}
       
@@ -51,7 +56,9 @@
              
           <div>  
              <LinkTo @route="char" @model={{char.name}} class="btn btn-default">Profile</LinkTo>
+             {{#if (not char.app_pending)}}
              <LinkTo @route="roster-claim" @model={{char.id}} class="btn btn-primary">Claim</LinkTo>
+             {{/if}}
            </div>
              
         </div>
